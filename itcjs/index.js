@@ -1,24 +1,39 @@
-const http = require("http"); 
+var http = require ("http"), fs = require("fs");
 
-http.createServer((req,res) => {
-  res.writeHead(200, {'Content-Type': 'text/plain'});
-  res.end('Aloha world');
+
+http.createServer(function(req,res)
+ {                 
+    console.log("url = " + req.url)
+    console.log("dir = " + __dirname)
     
-   const path = req.url.toLowerCase();
-  switch(path) {
-    case 'public/home.html':
-      res.writeHead(200, {'Content-Type': 'text/plain'});
-      res.end('Home page');
-      break;
-    case 'public/about.html':
-      res.writeHead(200, {'Content-Type': 'text/plain'});
-      res.end('About page');
-      break;
+    var path = req.url.toLowerCase()
+    switch(path) {
+            
+        case '/':
+        fs.readFile(__dirname + '/home.html', function(err, data) {
+                if (err) {
+                    res.writeHead(500, {'Content-Type': 'text/plain'});
+                    res.end('500 - internal error');
+                    } else {
+                        res.writeHead(200, {'Content-Type': 'text/html'});
+                        res.end(data);
+                    }
+                    });
+    break;
+            
+    case '/about':
+    res.writeHead(200, {'Content-Type': 'text/plain'});
+    res.end('About Page');
+    break;
+    
     default:
-      res.writeHead(404, {'Content-Type': 'text/plain'});
-      res.end('Not found');
-      break;
-    } 
-    
-    
-}).listen(process.env.PORT || 3000);
+    res.writeHead(404, {'Content-Type': 'text/plain'});
+    res.end('Not found');
+    break;     
+            
+    }
+}
+).listen(process.env.PORT || 3000);
+                  
+                                 
+                  
