@@ -1,8 +1,8 @@
 {
-  "name": "Yonnys app",
-  "version": "1.0.0",
-"description": "This app wil be efficient and informative regarding anything NBA related", 
-  "scripts": {
+    "name": "app",
+    "version": "1.0.0",
+    "description": "This app wil be efficient and informative regarding anything NBA related", 
+    "scripts": {
     "start": "node script1.js"   
+    }
   }
-}
