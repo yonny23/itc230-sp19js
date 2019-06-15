@@ -1,3 +1,5 @@
+
+//assignment 7
 <html>
 <head>
   <meta charset="utf-8">
@@ -66,3 +68,36 @@ class BookApp extends React.Component{
       
       ReactDOM.render(  <Book />,  document.getElementById('root') );
     }
+        //crud assignment 8
+    <script> 
+        function book()                                    
+        { 
+            var title = document.forms["RegForm"]["Title"];               
+            var price = document.forms["RegForm"]["Price"];    
+            var author = document.forms["RegForm"]["Author"];  
+              
+           
+            if (name.value == "")                                  
+            { 
+                window.alert("Please enter Book title."); 
+                name.focus(); 
+                return false; 
+            } 
+           
+            if (price.value == "")                               
+            { 
+                window.alert("Please enter the price."); 
+                name.focus(); 
+                return false; 
+            } 
+               
+            if (author.value == "")                                   
+            { 
+                window.alert("Please enter the author name"); 
+                email.focus(); 
+                return false; 
+            } 
+            <p>Comments:  <textarea cols="55" name="Comment">  </textarea></p> 
+    <p><input type="save" value="save" name="Save"></input>     
+        <input type="reset" value="Reset" name="Reset"> </input>       
+        </p> 
